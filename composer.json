@@ -1,0 +1,19 @@
+{
+    "name": "msbh214/6amtech_task",
+    "description": "assignment for the jr. dev position",
+    "type": "wordpress-plugin",
+    "license": "MIT License",
+    "autoload": {
+        "psr-4": {
+            "_6amtech\\task\\": "includes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mesbah Uddin",
+            "email": "msbh214@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
