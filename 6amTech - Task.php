@@ -58,6 +58,11 @@ final class _6amTechTask {
 	}
 
 	public function init_plugin() {
+		load_plugin_textdomain( '6amtech_task', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+
+		if ( is_admin() ) {
+			new _6amTech\Task\Admin();
+		}
 	}
 
 	/**

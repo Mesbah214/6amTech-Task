@@ -5,7 +5,7 @@
     "license": "MIT License",
     "autoload": {
         "psr-4": {
-            "_6amtech\\task\\": "includes/"
+            "_6amTech\\Task\\": "includes/"
         }
     },
     "authors": [
