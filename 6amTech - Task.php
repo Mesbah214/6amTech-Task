@@ -54,7 +54,8 @@ final class _6amTechTask {
 	 * @return void
 	 */
 	public function activate() {
-		update_option( '6amTech_version', _6amTech_VERSION );
+		$installer = new _6amTech\Task\Installer();
+		$installer->run();
 	}
 
 	public function init_plugin() {

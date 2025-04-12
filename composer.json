@@ -6,7 +6,10 @@
     "autoload": {
         "psr-4": {
             "_6amTech\\Task\\": "includes/"
-        }
+        },
+        "files": [
+            "includes/function-helper.php"
+        ]
     },
     "authors": [
         {

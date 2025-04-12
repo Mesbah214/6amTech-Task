@@ -18,21 +18,10 @@ class Message {
 		register_setting( 'welcome_message_options_group', 'welcome_message' );
 
 		// Add the settings section
-		add_settings_section(
-			'welcome_message_settings_section',
-			__( '', '6amtech_task' ),
-			null,
-			'welcome_message'
-		);
+		add_settings_section( 'welcome_message_settings_section', __( '', '6amtech_task' ), null, 'welcome_message' );
 
 		// Add the settings field
-		add_settings_field(
-			'welcome_message_field',
-			__( 'Welcome Message', '6amtech_task' ),
-			[ $this, 'render_welcome_message_field' ],
-			'welcome_message',
-			'welcome_message_settings_section'
-		);
+		add_settings_field( 'welcome_message_field', __( 'Welcome Message', '6amtech_task' ), [ $this, 'render_welcome_message_field' ], 'welcome_message', 'welcome_message_settings_section' );
 	}
 
 	/**
@@ -41,13 +30,7 @@ class Message {
 	 * @return void
 	 */
 	public function add_message_settings_page() {
-		add_options_page(
-			'Welcome Message',
-			'Welcome Message',
-			'manage_options',
-			'welcome_message',
-			[ $this, 'welcome_message_options_page' ]
-		);
+		add_options_page( 'Welcome Message', 'Welcome Message', 'manage_options', 'welcome_message', [ $this, 'welcome_message_options_page' ] );
 	}
 
 	/**
