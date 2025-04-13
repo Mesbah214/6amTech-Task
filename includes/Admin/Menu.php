@@ -31,6 +31,12 @@ class Menu {
 			wp_die( __( 'You do not have sufficient permissions to access this page.', '6amtech_task' ) );
 		}
 
-		echo '<h1>' . esc_html__( 'Contact List', '6amtech_task' ) . '</h1>';
+		$template_path = _6amTech_PATH . '/templates/admin/contact_list.php';
+
+		if ( file_exists( $template_path ) ) {
+			include $template_path;
+		} else {
+			echo '<div class="wrap"><h1>' . esc_html__( 'File not found!', '6amtech_task' ) . '</h1>';
+		}
 	}
 }
