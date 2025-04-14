@@ -80,8 +80,8 @@ class ContactList extends WP_List_Table {
 	public function column_name( $item ) {
 		$actions = [];
 
-		$actions['edit']   = sprintf( '<a href="%s" title="%s">%s</a>', admin_url( 'admin.php?page=6amtech_task_contact_list&action=edit&id=' . $item->id ), __( 'Edit', '6amtech_task' ), __( 'Edit', '6amtech_task' ) );
-		$actions['delete'] = sprintf( '<a href="%s" class="submitdelete" onclick="return confirm(\'Are you sure?\');" title="%s">%s</a>', wp_nonce_url( admin_url( 'admin-post.php?action=_6amtech-task-delete-address&id=' . $item->id ), '_6amtech-task-delete-address' ), $item->id, __( 'Delete', 'wedevs-academy' ), __( 'Delete', 'wedevs-academy' ) );
+		$actions['edit']   = sprintf( '<a href="%s" title="%s">%s</a>', admin_url( 'admin.php?page=6amtech_task_add_new_contact&action=edit&id=' . $item->id ), __( 'Edit', '6amtech_task' ), __( 'Edit', '6amtech_task' ) );
+		$actions['delete'] = sprintf( '<a href="%s" class="submitdelete" onclick="return confirm(\'Are you sure?\');" title="%s">%s</a>', wp_nonce_url( admin_url( 'admin-post.php?action=6amtech-task-delete-contact&id=' . $item->id ), '6amtech-task-delete-contact' ), $item->id, __( 'Delete', '6amtech_task' ), __( 'Delete', '6amtech_task' ) );
 
 		return sprintf(
 			'<a href="%1$s"><strong>%2$s</strong></a> %3$s',

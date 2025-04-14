@@ -29,6 +29,28 @@ function contact_list_insert_details( $args = [] ) {
 	$data       = wp_parse_args( $args, $defaults );
 	$table_name = $wpdb->prefix . 'contact_list';
 
+	if ( isset( $data['id'] ) ) {
+		$id = $data['id'];
+		unset( $data['id'] );
+
+		$updated = $wpdb->update(
+			$table_name,
+			$data,
+			[ 'id' => $id ],
+			[
+				'%s',
+				'%s',
+				'%s',
+				'%s',
+				'%d',
+				'%s',
+			],
+			[ '%d' ]
+		);
+
+		return $updated;
+	}
+
 	$inserted = $wpdb->insert(
 		$table_name,
 		$data,
@@ -70,7 +92,7 @@ function contact_list_get_details( $args = [] ) {
 	$table_name = $wpdb->prefix . 'contact_list';
 
 	$sql = $wpdb->prepare(
-		"SELECT * FROM {$wpdb->prefix}contact_list
+		"SELECT * FROM {$table_name}
             ORDER BY {$args['orderby']} {$args['order']}
             LIMIT %d, %d",
 		$args['offset'],
@@ -95,4 +117,35 @@ function contact_list_get_count() {
 	$count = $wpdb->get_var( "SELECT COUNT(id) FROM {$table_name}" );
 
 	return $count;
+}
+
+/**
+ * Get a single contact from DB
+ *
+ * @param int $id
+ * @return object|false
+ */
+function contact_list_get_details_by_id( $id ) {
+	global $wpdb;
+
+	return $wpdb->get_row(
+		$wpdb->prepare( "SELECT * FROM {$wpdb->prefix}contact_list WHERE id = %d", $id )
+	);
+}
+
+/**
+ * Update contact list details
+ *
+ * @param int $id
+ * @param array $args
+ * @return int|bool
+ */
+function contact_list_delete_contact( $id ) {
+	global $wpdb;
+
+	return $wpdb->delete(
+		$wpdb->prefix . 'contact_list',
+		[ 'id' => $id ],
+		[ '%d' ]
+	);
 }
