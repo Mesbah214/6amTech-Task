@@ -81,7 +81,7 @@ function contact_list_get_details( $args = [] ) {
 	global $wpdb;
 
 	$defaults = [
-		'number'  => 5,
+		'number'  => -1,
 		'offset'  => 0,
 		'order'   => 'ASC',
 		'orderby' => 'id',
@@ -91,15 +91,17 @@ function contact_list_get_details( $args = [] ) {
 
 	$table_name = $wpdb->prefix . 'contact_list';
 
-	$sql = $wpdb->prepare(
-		"SELECT * FROM {$table_name}
-            ORDER BY {$args['orderby']} {$args['order']}
-            LIMIT %d, %d",
-		$args['offset'],
-		$args['number']
-	);
+	$query = "SELECT * FROM {$table_name} ORDER BY {$args['orderby']} {$args['order']}";
 
-	$items = $wpdb->get_results( $sql );
+	if ( -1 !== $args['number'] ) {
+		$query = $wpdb->prepare(
+			$query . ' LIMIT %d, %d',
+			$args['offset'],
+			$args['number']
+		);
+	}
+
+	$items = $wpdb->get_results( $query );
 
 	return $items;
 }

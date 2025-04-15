@@ -67,6 +67,8 @@ final class _6amTechTask {
 		} else {
 			new _6amTech\Task\Frontend();
 		}
+
+		new _6amTech\Task\API();
 	}
 
 	/**
