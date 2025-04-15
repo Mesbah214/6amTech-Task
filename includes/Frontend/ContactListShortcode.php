@@ -2,7 +2,7 @@
 
 namespace _6amTech\Task\Frontend;
 
-class Shortcode {
+class ContactListShortcode {
 	public function __construct() {
 		add_shortcode( 'contact_list', [ $this, 'render_shortcode' ] );
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_assets' ] );
