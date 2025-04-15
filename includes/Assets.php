@@ -21,6 +21,12 @@ class Assets {
                 'ver' => filemtime( _6amTech_PATH . '/assets/js/script.js' ),
                 'in_footer' => true,
             ],
+            'bootstrap-js' => [
+                'src' => _6amTech_ASSETS . '/js/bootstrap.min.js',
+                'deps' => [],
+                'ver' => filemtime( _6amTech_PATH . '/assets/js/bootstrap.min.js' ),
+                'in_footer' => true,
+            ],
         ];
     }
 
@@ -30,6 +36,16 @@ class Assets {
                 'src' => _6amTech_ASSETS . '/css/styles.css',
                 'deps' => [],
                 'ver' => filemtime( _6amTech_PATH . '/assets/css/styles.css' ),
+            ],
+            'bootstrap-css' => [
+                'src' => _6amTech_ASSETS . '/css/bootstrap.min.css',
+                'deps' => [],
+                'ver' => filemtime( _6amTech_PATH . '/assets/css/bootstrap.min.css' ),
+            ],
+            'table-css' => [
+                'src' => _6amTech_ASSETS . '/css/table-style.css',
+                'deps' => [],
+                'ver' => filemtime( _6amTech_PATH . '/assets/css/table-style.css' ),
             ],
         ];
     }

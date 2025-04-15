@@ -1,5 +1,6 @@
 <div class="wrap">
     <h1><?php esc_html_e( 'Contact List', '6amtech_task' ); ?></h1>
+    <p><?php _e( 'The shortcode for the contact list table is [contact_list]', '6amtech_task' ); ?></p>
     <?php if ( isset( $_GET[ 'inserted' ] ) ) : ?>
         <div class="notice notice-success is-dismissible">
             <p><?php _e( 'Contact added successfully.', '6amtech_task' ); ?></p>

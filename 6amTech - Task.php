@@ -64,6 +64,8 @@ final class _6amTechTask {
 
 		if ( is_admin() ) {
 			new _6amTech\Task\Admin();
+		} else {
+			new _6amTech\Task\Frontend();
 		}
 	}
 
