@@ -1,4 +1,5 @@
 (function ($) {
+    // Delete contact from database
     $("table.wp-list-table.contacts").on("click", "a.submitdelete", function (e) {
         e.preventDefault();
 
@@ -35,13 +36,14 @@
         });
     });
 
-    $("#add_contact").on("click", function (e) {
+    // Insert or update contact in database
+    $(".submit-contact").on("click", function (e) {
         e.preventDefault();
-        form = $("#add_contact_form");
+        form = $(".contact-form");
 
         let data = form.serialize();
         let nonce = $("#_wpnonce");
-        console.log(nonce.val());
+        let id = $("[name='id']").val() || 0;
 
         $.ajax({
             url: _6amtech_contact.ajax_url,
@@ -54,7 +56,7 @@
             success: function (response) {
                 if (response.success) {
                     toastr.success(response.data.message);
-                    form[0].reset();
+                    if (!id) form[0].reset();
                 } else {
                     toastr.error(response.data.message || _6amtech_contact.error);
                 }

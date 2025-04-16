@@ -29,6 +29,7 @@ function contact_list_insert_details( $args = [] ) {
 	$data       = wp_parse_args( $args, $defaults );
 	$table_name = $wpdb->prefix . 'contact_list';
 
+	// Update if ID is set
 	if ( isset( $data['id'] ) ) {
 		$id = $data['id'];
 		unset( $data['id'] );
@@ -51,6 +52,7 @@ function contact_list_insert_details( $args = [] ) {
 		return $updated;
 	}
 
+	// Insert new record
 	$inserted = $wpdb->insert(
 		$table_name,
 		$data,

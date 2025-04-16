@@ -1,8 +1,7 @@
 <div class="wrap">
     <h1 class="wp-heading-inline"><?php _e( 'Add New Contact', '6amtech_task' ); ?></h1>
     <p><?php _e( 'Fill up the form to add new contact to the contact list.' ); ?></p>
-    <!-- TODO: show same email id error -->
-    <form action="" method="post" id="add_contact_form">
+    <form action="" method="post" class="contact-form">
         <table class="form-table">
             <tr valign="top">
                 <td scope="row"><label for="name"><?php _e( 'Name', '6amtech_task' ); ?></label></td>
@@ -33,6 +32,6 @@
         </table>
 
         <?php wp_nonce_field( 'add_contact' ); ?>
-        <?php submit_button( __( 'Add Contact', '6amtech_task' ), 'primary', 'add_contact' ); ?>
+        <?php submit_button( __( 'Add Contact', '6amtech_task' ), 'primary submit-contact', 'add_contact' ); ?>
     </form>
 </div>
