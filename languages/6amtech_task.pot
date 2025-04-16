@@ -1,0 +1,211 @@
+# Copyright (C) 2025 Mesbah
+# This file is distributed under the MIT License.
+msgid ""
+msgstr ""
+"Project-Id-Version: 6amTech - Task 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/6amTech - Task\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-04-16T21:28:24+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.10.0\n"
+"X-Domain: 6amtech_task\n"
+
+#. Plugin Name of the plugin
+#: 6amTech - Task.php
+#: includes/Admin/Menu.php:23
+msgid "6amTech - Task"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: 6amTech - Task.php
+msgid "https://6amTech-Task.xyz"
+msgstr ""
+
+#. Description of the plugin
+#: 6amTech - Task.php
+msgid "Print welcome message to the front page"
+msgstr ""
+
+#. Author of the plugin
+#: 6amTech - Task.php
+msgid "Mesbah"
+msgstr ""
+
+#. Author URI of the plugin
+#: 6amTech - Task.php
+msgid "https://https://mesbah214.github.io/portfolio/"
+msgstr ""
+
+#: includes/Admin/AddNewContact.php:43
+#: includes/Admin/AddNewContact.php:66
+#: includes/Admin/AddNewContact.php:121
+#: includes/Admin/Menu.php:47
+#: includes/Admin/Message.php:43
+#: includes/Ajax.php:64
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: includes/Admin/AddNewContact.php:49
+#: includes/Admin/Menu.php:55
+#: includes/Admin/Message.php:51
+msgid "File not found!"
+msgstr ""
+
+#: includes/Admin/AddNewContact.php:70
+#: includes/Admin/AddNewContact.php:125
+msgid "Nonce verification failed"
+msgstr ""
+
+#: includes/Admin/AddNewContact.php:81
+#: includes/Ajax.php:75
+msgid "Name is required."
+msgstr ""
+
+#: includes/Admin/AddNewContact.php:85
+#: includes/Ajax.php:81
+msgid "Email is required."
+msgstr ""
+
+#: includes/Admin/ContactList.php:35
+#: templates/admin/add_new_contact.php:7
+#: templates/admin/edit_contact.php:12
+msgid "Name"
+msgstr ""
+
+#: includes/Admin/ContactList.php:36
+#: templates/admin/add_new_contact.php:16
+#: templates/admin/edit_contact.php:21
+msgid "Email"
+msgstr ""
+
+#: includes/Admin/ContactList.php:37
+msgid "Phone"
+msgstr ""
+
+#: includes/Admin/ContactList.php:38
+#: templates/admin/add_new_contact.php:29
+#: templates/admin/edit_contact.php:34
+msgid "Address"
+msgstr ""
+
+#: includes/Admin/ContactList.php:39
+msgid "Created At"
+msgstr ""
+
+#: includes/Admin/ContactList.php:83
+msgid "Edit"
+msgstr ""
+
+#: includes/Admin/ContactList.php:84
+msgid "Delete"
+msgstr ""
+
+#: includes/Admin/Menu.php:24
+#: templates/admin/contact_list.php:2
+msgid "Contact List"
+msgstr ""
+
+#: includes/Admin/Menu.php:25
+#: templates/admin/add_new_contact.php:2
+msgid "Add New Contact"
+msgstr ""
+
+#: includes/Admin/Message.php:24
+#: templates/admin/welcome_message.php:2
+msgid "Welcome Message"
+msgstr ""
+
+#: includes/Ajax.php:29
+#: includes/Ajax.php:60
+msgid "Invalid nonce"
+msgstr ""
+
+#: includes/Ajax.php:37
+msgid "Contact deleted successfully"
+msgstr ""
+
+#: includes/Ajax.php:41
+msgid "Failed to delete contact"
+msgstr ""
+
+#: includes/Ajax.php:107
+msgid "Contact added successfully"
+msgstr ""
+
+#: includes/Ajax.php:111
+msgid "Failed to add contact"
+msgstr ""
+
+#: includes/Ajax.php:121
+msgid "Contact updated successfully"
+msgstr ""
+
+#: includes/Ajax.php:125
+msgid "Failed to update contact"
+msgstr ""
+
+#: includes/API.php:85
+#: templates/admin/contact_list.php:6
+msgid "Contact added successfully."
+msgstr ""
+
+#: includes/Assets.php:90
+msgid "Are you sure?"
+msgstr ""
+
+#: includes/Assets.php:91
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: includes/function-helper.php:13
+msgid "Name has no value."
+msgstr ""
+
+#: includes/function-helper.php:17
+msgid "Email has no value."
+msgstr ""
+
+#: includes/function-helper.php:70
+msgid "Failed to insert data into the database."
+msgstr ""
+
+#: templates/admin/add_new_contact.php:25
+#: templates/admin/edit_contact.php:30
+msgid "Phone Number"
+msgstr ""
+
+#: templates/admin/add_new_contact.php:35
+msgid "Add Contact"
+msgstr ""
+
+#: templates/admin/contact_list.php:3
+msgid "The shortcode for the contact list table is [contact_list]"
+msgstr ""
+
+#: templates/admin/contact_list.php:11
+msgid "Contact deleted successfully."
+msgstr ""
+
+#: templates/admin/edit_contact.php:2
+msgid "Edit Contact"
+msgstr ""
+
+#: templates/admin/edit_contact.php:5
+msgid "Contact updated successfully."
+msgstr ""
+
+#: templates/admin/edit_contact.php:41
+msgid "Update Contact"
+msgstr ""
+
+#: templates/admin/welcome_message.php:3
+msgid "Enter the custom welcome message to display at the top of every post!"
+msgstr ""
+
+#: templates/admin/welcome_message.php:13
+msgid "Save Settings"
+msgstr ""
