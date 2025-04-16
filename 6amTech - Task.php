@@ -32,6 +32,7 @@ final class _6amTechTask {
 	private function __construct() {
 		$this->defined_constants();
 		register_activation_hook( __FILE__, [ $this, 'activate' ] );
+		register_deactivation_hook( __FILE__, [ $this, 'deactivate' ] );
 		add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
 	}
 
@@ -55,6 +56,16 @@ final class _6amTechTask {
 	 */
 	public function activate() {
 		$installer = new _6amTech\Task\Installer();
+		$installer->run();
+	}
+
+	/**
+	 * Do stuff on plugin activation
+	 *
+	 * @return void
+	 */
+	public function deactivate() {
+		$installer = new _6amTech\Task\Uninstall();
 		$installer->run();
 	}
 

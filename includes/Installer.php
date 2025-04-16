@@ -46,12 +46,4 @@ class Installer {
 		update_option( '6amTech_version', _6amTech_VERSION );
 	}
 
-	// public function uninstall() {
-	// 	global $wpdb;
-
-	// 	$table_name = $wpdb->prefix . '6amtech_task_contact_list';
-
-	// 	$sql = "DROP TABLE IF EXISTS {$table_name};";
-	// 	$wpdb->query( $sql );
-	// }
 }
