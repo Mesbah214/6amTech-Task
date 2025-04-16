@@ -61,7 +61,7 @@ Adds a top-level menu in the WordPress admin titled "6amTech - Task" with two ta
 - ✅ Uses **AJAX** for add/edit/delete operations for a smoother experience.
 - ✅ Escaping and sanitization applied where necessary.
 
-##📄 Installation
+## 📄 Installation
 1. Download or clone the repository to your WordPress plugins directory:
 
 
@@ -117,4 +117,4 @@ To clean up all plugin data (e.g., database table, options), delete the plugin f
 
 Email: msbh214@gmail.com
 
-GitHub: [https://github.com/Mesbah214]
+GitHub: https://github.com/Mesbah214
