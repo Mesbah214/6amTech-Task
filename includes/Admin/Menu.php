@@ -20,9 +20,24 @@ class Menu {
 		$capability  = 'manage_options';
 		$parent_slug = '6amtech_task_contact_list';
 
-		add_menu_page( __( '6amTech - Task', '6amtech_task' ), __( '6amTech - Task', '6amtech_task' ), $capability, $parent_slug, [ $this, 'contact_list_page' ], 'dashicons-book', 25 );
+		$hook1 = add_menu_page( __( '6amTech - Task', '6amtech_task' ), __( '6amTech - Task', '6amtech_task' ), $capability, $parent_slug, [ $this, 'contact_list_page' ], 'dashicons-book', 25 );
 		add_submenu_page( $parent_slug, __( 'Contact List', '6amtech_task' ), __( 'Contact List', '6amtech_task' ), $capability, $parent_slug, [ $this, 'contact_list_page' ] );
-		add_submenu_page( $parent_slug, __( 'Add New Contact', '6amtech_task' ), __( 'Add New Contact', '6amtech_task' ), $capability, '6amtech_task_add_new_contact', [ $this->add_new_contact, 'page' ] );
+		$hook2 = add_submenu_page( $parent_slug, __( 'Add New Contact', '6amtech_task' ), __( 'Add New Contact', '6amtech_task' ), $capability, '6amtech_task_add_new_contact', [ $this->add_new_contact, 'page' ] );
+
+		add_action( 'admin_head-' . $hook1, [ $this, 'equeue_assets' ] );
+		add_action( 'admin_head-' . $hook2, [ $this, 'equeue_assets' ] );
+	}
+
+	/**
+	 * Enqueue styles and scripts
+	 *
+	 * @return void
+	 */
+	public function equeue_assets() {
+		// Enqueue styles and scripts
+		wp_enqueue_style( 'toastr-css' );
+
+		wp_enqueue_script( 'toastr-js' );
 	}
 
 	public function contact_list_page() {
