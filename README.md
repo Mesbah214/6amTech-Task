@@ -1,4 +1,5 @@
-#6amTech - Task
+# 6amTech - Task
+
 **A custom WordPress plugin built for the Jr. WordPress Plugin/Theme Developer assessment at 6amTech.**
 
 This plugin demonstrates core skills in plugin development, including admin interfaces, REST API integration, custom database operations, shortcode implementation, AJAX enhancements, and external library integrations.
