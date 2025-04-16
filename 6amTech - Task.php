@@ -62,6 +62,10 @@ final class _6amTechTask {
 		new _6amTech\Task\Assets();
 		load_plugin_textdomain( '6amtech_task', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
+		if ( defined ( 'DOING_AJAX' ) && DOING_AJAX ) {
+			new _6amTech\Task\Ajax();
+		}
+
 		if ( is_admin() ) {
 			new _6amTech\Task\Admin();
 		} else {

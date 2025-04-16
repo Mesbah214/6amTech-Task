@@ -38,6 +38,7 @@ class Menu {
 		wp_enqueue_style( 'toastr-css' );
 
 		wp_enqueue_script( 'toastr-js' );
+		wp_enqueue_script( 'contact' );
 	}
 
 	public function contact_list_page() {

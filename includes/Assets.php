@@ -33,6 +33,12 @@ class Assets {
 				'ver'       => filemtime( _6amTech_PATH . '/assets/js/toastr.min.js' ),
 				'in_footer' => true,
 			],
+			'contact' => [
+				'src'       => _6amTech_ASSETS . '/js/contactPage.js',
+				'deps'      => ['jquery', 'wp-util'],
+				'ver'       => filemtime( _6amTech_PATH . '/assets/js/contactPage.js' ),
+				'in_footer' => true,
+			],
 		];
 	}
 
@@ -77,5 +83,13 @@ class Assets {
 		foreach ( $styles as $handle => $style ) {
 			wp_register_style( $handle, $style['src'], $style['deps'], $style['ver'] );
 		}
+
+		wp_localize_script( 'contact', '_6amtech_contact', [
+			'nonce' => wp_create_nonce( '6amtech_delete_contact' ),
+			'ajax_url' => admin_url( 'admin-ajax.php' ),
+			'confirm' => __( 'Are you sure?', '6amtech_task' ),
+			// 'nonce'    => wp_create_nonce( '6amtech_contact_nonce' ),
+			'error'    => __( 'Something went wrong. Please try again.', '6amtech_task' ),
+		] );
 	}
 }
