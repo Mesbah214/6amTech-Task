@@ -2,7 +2,7 @@
     <h1 class="wp-heading-inline"><?php _e( 'Add New Contact', '6amtech_task' ); ?></h1>
     <p><?php _e( 'Fill up the form to add new contact to the contact list.' ); ?></p>
     <!-- TODO: show same email id error -->
-    <form action="" method="post">
+    <form action="" method="post" id="add_contact_form">
         <table class="form-table">
             <tr valign="top">
                 <td scope="row"><label for="name"><?php _e( 'Name', '6amtech_task' ); ?></label></td>

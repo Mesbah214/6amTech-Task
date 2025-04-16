@@ -10,6 +10,7 @@ namespace _6amTech\Task;
 class Ajax {
 	public function __construct() {
 		add_action( 'wp_ajax_delete_contact', [ $this, 'delete_contact' ] );
+		add_action( 'wp_ajax_add_contact', [ $this, 'add_contact' ] );
 	}
 
 	public function delete_contact() {
@@ -31,6 +32,64 @@ class Ajax {
 		} else {
 			wp_send_json_error( [
 				'message' => __( 'Failed to delete contact', '6amtech_task' ),
+			] );
+		}
+	}
+
+	public function add_contact() {
+		global $wpdb;
+		parse_str( $_POST['data'], $parsed_data );
+
+		$nonce = isset( $parsed_data['_wpnonce'] ) ? sanitize_text_field( $parsed_data['_wpnonce'] ) : '';
+
+		if ( ! wp_verify_nonce( $nonce, 'add_contact' ) ) {
+			wp_send_json_error( [ 'message' => __( 'Invalid nonce', '6amtech_task' ) ] );
+		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error( [ 'message' => __( 'You do not have sufficient permissions to access this page.', '6amtech_task' ) ] );
+		}
+
+		$name    = sanitize_text_field( $parsed_data['name'] );
+		$email   = sanitize_email( $parsed_data['email'] );
+		$phone   = sanitize_text_field( $parsed_data['phone'] );
+		$address = sanitize_text_field( $parsed_data['address'] );
+
+		if ( empty( $name ) ) {
+			wp_send_json_error( [
+				'message' => __( 'Name is required.', '6amtech_task' ),
+			] );
+		}
+
+		if ( empty( $email ) ) {
+			wp_send_json_error( [
+				'message' => __( 'Email is required.', '6amtech_task' ),
+			] );
+		}
+
+		// check if the email is unique
+		$table = $wpdb->prefix . 'contact_list';
+
+		$exists = $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM ' . esc_sql( $table ) . ' WHERE email = %s', $email ) );
+
+		if ( $exists ) {
+			wp_send_json_error( [ 'message' => __( 'The email already exists', 'wpappsdev-core' ) ] );
+		}
+
+		$result = contact_list_insert_details( [
+			'name'    => $name,
+			'email'   => $email,
+			'phone'   => $phone,
+			'address' => $address,
+		] );
+
+		if ( true == $result ) {
+			wp_send_json_success( [
+				'message' => __( 'Contact added successfully', '6amtech_task' ),
+			] );
+		} else {
+			wp_send_json_error( [
+				'message' => __( 'Failed to update contact', '6amtech_task' ),
 			] );
 		}
 	}

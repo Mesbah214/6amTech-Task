@@ -56,6 +56,8 @@ class AddNewContact {
 	 * @return void
 	 */
 	public function submit_form() {
+		error_log( print_r( $_POST, true ) );
+
 		if ( ! isset( $_POST['add_contact'] ) ) {
 			return;
 		}
@@ -69,6 +71,7 @@ class AddNewContact {
 		}
 
 		$id      = isset( $_POST['id'] ) ? intval( $_POST['id'] ) : 0;
+		error_log( $id );
 		$name    = isset( $_POST['name'] ) ? sanitize_text_field( $_POST['name'] ) : '';
 		$email   = isset( $_POST['email'] ) ? sanitize_text_field( $_POST['email'] ) : '';
 		$phone   = isset( $_POST['phone'] ) ? sanitize_text_field( $_POST['phone'] ) : '';

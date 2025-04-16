@@ -5,9 +5,9 @@
             <p><?php _e( 'Contact updated successfully.', '6amtech_task' ); ?></p>
         </div>
     <?php endif ; ?>
-    <p><?php _e( 'Fill up the form to add new contact to the contact list.' ); ?></p>
+    <p><?php _e( 'Change the required fields to update the contact' ); ?></p>
     <!-- TODO: show same email id error -->
-    <form action="" method="post">
+    <form action="" method="post" id="contact-edit-form">
         <table class="form-table">
             <tr valign="top">
                 <td scope="row"><label for="name"><?php _e( 'Name', '6amtech_task' ); ?></label></td>
@@ -38,7 +38,7 @@
         </table>
 
         <input type="hidden" name="id" value="<?php echo esc_attr( $contact->id ); ?>" />
-        <?php wp_nonce_field( 'add_contact' ); ?>
-        <?php submit_button( __( 'Update Contact', '6amtech_task' ), 'primary', 'add_contact' ); ?>
+        <?php wp_nonce_field( 'update_contact' ); ?>
+        <?php submit_button( __( 'Update Contact', '6amtech_task' ), 'primary', 'update_contact' ); ?>
     </form>
 </div>

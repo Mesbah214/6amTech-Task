@@ -34,4 +34,34 @@
             },
         });
     });
+
+    $("#add_contact").on("click", function (e) {
+        e.preventDefault();
+        form = $("#add_contact_form");
+
+        let data = form.serialize();
+        let nonce = $("#_wpnonce");
+        console.log(nonce.val());
+
+        $.ajax({
+            url: _6amtech_contact.ajax_url,
+            type: "POST",
+            data: {
+                action: "add_contact",
+                data: data,
+                _wpnonce: nonce.val(),
+            },
+            success: function (response) {
+                if (response.success) {
+                    toastr.success(response.data.message);
+                    form[0].reset();
+                } else {
+                    toastr.error(response.data.message || _6amtech_contact.error);
+                }
+            },
+            error: function () {
+                toastr.error(_6amtech_contact.error);
+            },
+        });
+    });
 })(jQuery);

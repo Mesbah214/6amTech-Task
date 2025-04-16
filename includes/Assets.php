@@ -88,7 +88,6 @@ class Assets {
 			'nonce' => wp_create_nonce( '6amtech_delete_contact' ),
 			'ajax_url' => admin_url( 'admin-ajax.php' ),
 			'confirm' => __( 'Are you sure?', '6amtech_task' ),
-			// 'nonce'    => wp_create_nonce( '6amtech_contact_nonce' ),
 			'error'    => __( 'Something went wrong. Please try again.', '6amtech_task' ),
 		] );
 	}
