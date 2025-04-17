@@ -21,6 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once __DIR__ . '/vendor/autoload.php';
 
+// phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
 final class _6amTechTask {
 	/**
 	 * Plugin version
@@ -42,11 +43,11 @@ final class _6amTechTask {
 	 * @return void
 	 */
 	public function defined_constants() {
-		define( '_6amTech_VERSION', self::VERSION );
-		define( '_6amTech_FILE', __FILE__ );
-		define( '_6amTech_PATH', __DIR__ );
-		define( '_6amTech_URL', plugins_url( '', _6amTech_FILE ) );
-		define( '_6amTech_ASSETS', _6amTech_URL . '/assets' );
+		define( '_6AMTECH_VERSION', self::VERSION );
+		define( '_6AMTECH_FILE', __FILE__ );
+		define( '_6AMTECH_PATH', __DIR__ );
+		define( '_6AMTECH_URL', plugins_url( '', _6AMTECH_FILE ) );
+		define( '_6AMTECH_ASSETS', _6AMTECH_URL . '/assets' );
 	}
 
 	/**
@@ -73,7 +74,7 @@ final class _6amTechTask {
 		new _6amTech\Task\Assets();
 		load_plugin_textdomain( '6amtech_task', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
-		if ( defined ( 'DOING_AJAX' ) && DOING_AJAX ) {
+		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 			new _6amTech\Task\Ajax();
 		}
 
@@ -107,6 +108,7 @@ final class _6amTechTask {
  *
  * @return \_6amTechTask
  */
+// phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
 function _6amTechTask() {
 	return _6amTechTask::init();
 }

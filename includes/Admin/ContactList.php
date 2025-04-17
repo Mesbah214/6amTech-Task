@@ -17,11 +17,13 @@ if ( ! class_exists( 'WP_List_Table' ) ) {
  */
 class ContactList extends WP_List_Table {
 	public function __construct() {
-		parent::__construct( [
-			'singular' => 'Contact',
-			'plural'   => 'Contacts',
-			'ajax'     => false,
-		] );
+		parent::__construct(
+			[
+				'singular' => 'Contact',
+				'plural'   => 'Contacts',
+				'ajax'     => false,
+			]
+		);
 	}
 
 	/**
@@ -54,7 +56,7 @@ class ContactList extends WP_List_Table {
 				break;
 
 			default:
-				return isset(  $item->$column_name ) ? $item->$column_name : '';
+				return isset( $item->$column_name ) ? $item->$column_name : '';
 		}
 	}
 
@@ -125,17 +127,19 @@ class ContactList extends WP_List_Table {
 			'offset' => $offset,
 		];
 
-		if ( isset( $_REQUEST['orderby'], $_REQUEST['order'] )     ) {
-			$args['orderby'] = $_REQUEST['orderby'];
-			$args['order']   = $_REQUEST['order'];
+		if ( isset( $_REQUEST['orderby'], $_REQUEST['order'] ) ) {
+			$args['orderby'] = sanitize_text_field( wp_unslash( $_REQUEST['orderby'] ) );
+			$args['order']   = sanitize_text_field( wp_unslash( $_REQUEST['order'] ) );
 		}
 
 		// Fetch the items from the database
 		$this->items = contact_list_get_details( $args );
 
-		$this->set_pagination_args( [
-			'total_items' => contact_list_get_count(),
-			'per_page'    => 5,
-		] );
+		$this->set_pagination_args(
+			[
+				'total_items' => contact_list_get_count(),
+				'per_page'    => 5,
+			]
+		);
 	}
 }

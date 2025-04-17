@@ -16,27 +16,27 @@ class Assets {
 	public function get_scripts() {
 		return [
 			'frontend.js' => [
-				'src'       => _6amTech_ASSETS . '/js/script.js',
+				'src'       => _6AMTECH_ASSETS . '/js/script.js',
 				'deps'      => [],
-				'ver'       => filemtime( _6amTech_PATH . '/assets/js/script.js' ),
+				'ver'       => filemtime( _6AMTECH_PATH . '/assets/js/script.js' ),
 				'in_footer' => true,
 			],
 			'bootstrap-js' => [
-				'src'       => _6amTech_ASSETS . '/js/bootstrap.min.js',
+				'src'       => _6AMTECH_ASSETS . '/js/bootstrap.min.js',
 				'deps'      => [],
-				'ver'       => filemtime( _6amTech_PATH . '/assets/js/bootstrap.min.js' ),
+				'ver'       => filemtime( _6AMTECH_PATH . '/assets/js/bootstrap.min.js' ),
 				'in_footer' => true,
 			],
 			'toastr-js' => [
-				'src'       => _6amTech_ASSETS . '/js/toastr.min.js',
+				'src'       => _6AMTECH_ASSETS . '/js/toastr.min.js',
 				'deps'      => ['jquery'],
-				'ver'       => filemtime( _6amTech_PATH . '/assets/js/toastr.min.js' ),
+				'ver'       => filemtime( _6AMTECH_PATH . '/assets/js/toastr.min.js' ),
 				'in_footer' => true,
 			],
 			'contact' => [
-				'src'       => _6amTech_ASSETS . '/js/contactPage.js',
+				'src'       => _6AMTECH_ASSETS . '/js/contactPage.js',
 				'deps'      => ['jquery', 'wp-util'],
-				'ver'       => filemtime( _6amTech_PATH . '/assets/js/contactPage.js' ),
+				'ver'       => filemtime( _6AMTECH_PATH . '/assets/js/contactPage.js' ),
 				'in_footer' => true,
 			],
 		];
@@ -45,24 +45,24 @@ class Assets {
 	public function get_styles() {
 		return [
 			'style.css' => [
-				'src'  => _6amTech_ASSETS . '/css/styles.css',
+				'src'  => _6AMTECH_ASSETS . '/css/styles.css',
 				'deps' => [],
-				'ver'  => filemtime( _6amTech_PATH . '/assets/css/styles.css' ),
+				'ver'  => filemtime( _6AMTECH_PATH . '/assets/css/styles.css' ),
 			],
 			'bootstrap-css' => [
-				'src'  => _6amTech_ASSETS . '/css/bootstrap.min.css',
+				'src'  => _6AMTECH_ASSETS . '/css/bootstrap.min.css',
 				'deps' => [],
-				'ver'  => filemtime( _6amTech_PATH . '/assets/css/bootstrap.min.css' ),
+				'ver'  => filemtime( _6AMTECH_PATH . '/assets/css/bootstrap.min.css' ),
 			],
 			'table-css' => [
-				'src'  => _6amTech_ASSETS . '/css/table-style.css',
+				'src'  => _6AMTECH_ASSETS . '/css/table-style.css',
 				'deps' => [],
-				'ver'  => filemtime( _6amTech_PATH . '/assets/css/table-style.css' ),
+				'ver'  => filemtime( _6AMTECH_PATH . '/assets/css/table-style.css' ),
 			],
 			'toastr-css' => [
-				'src'  => _6amTech_ASSETS . '/css/toastr.min.css',
+				'src'  => _6AMTECH_ASSETS . '/css/toastr.min.css',
 				'deps' => [],
-				'ver'  => filemtime( _6amTech_PATH . '/assets/css/toastr.min.css' ),
+				'ver'  => filemtime( _6AMTECH_PATH . '/assets/css/toastr.min.css' ),
 			],
 		];
 	}
@@ -84,11 +84,15 @@ class Assets {
 			wp_register_style( $handle, $style['src'], $style['deps'], $style['ver'] );
 		}
 
-		wp_localize_script( 'contact', '_6amtech_contact', [
-			'nonce' => wp_create_nonce( '6amtech_delete_contact' ),
-			'ajax_url' => admin_url( 'admin-ajax.php' ),
-			'confirm' => __( 'Are you sure?', '6amtech_task' ),
-			'error'    => __( 'Something went wrong. Please try again.', '6amtech_task' ),
-		] );
+		wp_localize_script(
+			'contact',
+			'_6amtech_contact',
+			[
+				'nonce'    => wp_create_nonce( '6amtech_delete_contact' ),
+				'ajax_url' => admin_url( 'admin-ajax.php' ),
+				'confirm'  => __( 'Are you sure?', '6amtech_task' ),
+				'error'    => __( 'Something went wrong. Please try again.', '6amtech_task' ),
+			]
+		);
 	}
 }

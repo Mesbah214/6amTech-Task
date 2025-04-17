@@ -17,7 +17,7 @@ trait FormError {
 	 * @return bool True if the form has errors, false otherwise.
 	 */
 	public function has_error( $key ) {
-		return ( isset( $this->errors[$key] ) ? true : false );
+		return ( isset( $this->errors[ $key ] ) ? true : false );
 	}
 
 	/**
@@ -27,8 +27,8 @@ trait FormError {
 	 * @return string|null The error message or null if not set.
 	 */
 	public function get_error( $key ) {
-		if ( isset( $this->errors[$key] ) ) {
-			return $this->errors[$key];
+		if ( isset( $this->errors[ $key ] ) ) {
+			return $this->errors[ $key ];
 		}
 	}
 }

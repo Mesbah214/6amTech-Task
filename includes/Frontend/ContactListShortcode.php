@@ -17,7 +17,7 @@ class ContactListShortcode {
         wp_enqueue_style( 'table-css' );
 		ob_start();
 
-		include _6amTech_PATH . '/templates/frontend/contact_list_table.php';
+		include _6AMTECH_PATH . '/templates/frontend/contact_list_table.php';
 
 		return ob_get_clean();
 	}

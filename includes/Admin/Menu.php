@@ -44,10 +44,10 @@ class Menu {
 	public function contact_list_page() {
 		// Check if the user has the required capability
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( __( 'You do not have sufficient permissions to access this page.', '6amtech_task' ) );
+			wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', '6amtech_task' ) );
 		}
 
-		$template_path = _6amTech_PATH . '/templates/admin/contact_list.php';
+		$template_path = _6AMTECH_PATH . '/templates/admin/contact_list.php';
 
 		if ( file_exists( $template_path ) ) {
 			include $template_path;

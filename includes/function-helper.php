@@ -77,7 +77,7 @@ function contact_list_insert_details( $args = [] ) {
  * Get contact list details
  *
  * @param array $args
- * @return $items
+ * @return array
  */
 function contact_list_get_details( $args = [] ) {
 	global $wpdb;
@@ -93,17 +93,28 @@ function contact_list_get_details( $args = [] ) {
 
 	$table_name = $wpdb->prefix . 'contact_list';
 
-	$query = "SELECT * FROM {$table_name} ORDER BY {$args['orderby']} {$args['order']}";
+	$allowed_orderby = ['id', 'name', 'email', 'created_at'];
+	$allowed_order   = ['ASC', 'DESC'];
 
-	if ( -1 !== $args['number'] ) {
+	$orderby = in_array( $args['orderby'], $allowed_orderby, true ) ? $args['orderby'] : 'id';
+	$order   = in_array( strtoupper( $args['order'] ), $allowed_order, true ) ? strtoupper( $args['order'] ) : 'ASC';
+
+	$query = "SELECT * FROM `{$table_name}` ORDER BY {$orderby} {$order}";
+
+	if ( -1 !== intval( $args['number'] ) ) {
 		$query = $wpdb->prepare(
-			$query . ' LIMIT %d, %d',
-			$args['offset'],
-			$args['number']
+			$query . ' LIMIT %d OFFSET %d',
+			$args['number'],
+			$args['offset']
 		);
 	}
 
-	$items = $wpdb->get_results( $query );
+	if ( -1 === intval( $args['number'] ) ) {
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+		$items = $wpdb->get_results( $query );
+	} else {
+		$items = $wpdb->get_results( $query );
+	}
 
 	return $items;
 }
@@ -118,7 +129,9 @@ function contact_list_get_count() {
 
 	$table_name = $wpdb->prefix . 'contact_list';
 
-	$count = $wpdb->get_var( "SELECT COUNT(id) FROM {$table_name}" );
+	$query = "SELECT COUNT(id) FROM `{$table_name}`";
+
+	$count = $wpdb->get_var( $query );
 
 	return $count;
 }

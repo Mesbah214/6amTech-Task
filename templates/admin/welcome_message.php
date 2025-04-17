@@ -13,5 +13,4 @@
         submit_button( __( 'Save Settings', '6amtech_task' ), 'primary', 'submit', true, [ 'id' => 'submit' ] );
         ?>
     </form>
-
 </div> <!-- .wrap -->

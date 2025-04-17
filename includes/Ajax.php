@@ -22,24 +22,30 @@ class Ajax {
 	 */
 	public function delete_contact() {
 		$id    = isset( $_POST['id'] ) ? intval( $_POST['id'] ) : 0;
-		$nonce = isset( $_POST['_wpnonce'] ) ? sanitize_text_field( $_POST['_wpnonce'] ) : '';
+		$nonce = isset( $_POST['_wpnonce'] ) ? sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ) : '';
 
 		if ( ! wp_verify_nonce( $nonce, '6amtech_delete_contact' ) ) {
-			wp_send_json_error( [
-				'message' => __( 'Invalid nonce', '6amtech_task' ),
-			] );
+			wp_send_json_error(
+				[
+					'message' => __( 'Invalid nonce', '6amtech_task' ),
+				]
+			);
 		}
 
 		$deleted = contact_list_delete_contact( $id );
 
 		if (  true == $deleted ) {
-			wp_send_json_success( [
-				'message' => __( 'Contact deleted successfully', '6amtech_task' ),
-			] );
+			wp_send_json_success(
+				[
+					'message' => __( 'Contact deleted successfully', '6amtech_task' ),
+				]
+			);
 		} else {
-			wp_send_json_error( [
-				'message' => __( 'Failed to delete contact', '6amtech_task' ),
-			] );
+			wp_send_json_error(
+				[
+					'message' => __( 'Failed to delete contact', '6amtech_task' ),
+				]
+			);
 		}
 	}
 
@@ -77,9 +83,11 @@ class Ajax {
 		}
 
 		if ( empty( $email ) ) {
-			wp_send_json_error( [
-				'message' => __( 'Email is required.', '6amtech_task' ),
-			] );
+			wp_send_json_error(
+				[
+					'message' => __( 'Email is required.', '6amtech_task' ),
+				]
+			);
 		}
 
 		$args = [
@@ -89,7 +97,7 @@ class Ajax {
 			'address' => $address,
 		];
 
-        // add new contact
+		// add new contact
 		if ( empty( $id ) ) {
 			// check if the email is unique
 			$table = $wpdb->prefix . 'contact_list';
@@ -103,13 +111,17 @@ class Ajax {
 			$result = contact_list_insert_details( $args );
 
 			if ( true == $result ) {
-				wp_send_json_success( [
-					'message' => __( 'Contact added successfully', '6amtech_task' ),
-				] );
+				wp_send_json_success(
+					[
+						'message' => __( 'Contact added successfully', '6amtech_task' ),
+					]
+				);
 			} else {
-				wp_send_json_error( [
-					'message' => __( 'Failed to add contact', '6amtech_task' ),
-				] );
+				wp_send_json_error(
+					[
+						'message' => __( 'Failed to add contact', '6amtech_task' ),
+					]
+				);
 			}
 		}
 		// update contact
@@ -117,13 +129,17 @@ class Ajax {
 		$inserted   = contact_list_insert_details( $args );
 
 		if ( true == $inserted ) {
-			wp_send_json_success( [
-				'message' => __( 'Contact updated successfully', '6amtech_task' ),
-			] );
+			wp_send_json_success(
+				[
+					'message' => __( 'Contact updated successfully', '6amtech_task' ),
+				]
+			);
 		} else {
-			wp_send_json_error( [
-				'message' => __( 'Failed to update contact', '6amtech_task' ),
-			] );
+			wp_send_json_error(
+				[
+					'message' => __( 'Failed to update contact', '6amtech_task' ),
+				]
+			);
 		}
 	}
 }

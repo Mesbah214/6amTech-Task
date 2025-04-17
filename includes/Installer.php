@@ -43,7 +43,7 @@ class Installer {
 	}
 
 	public function update_version() {
-		update_option( '6amTech_version', _6amTech_VERSION );
+		update_option( '6amTech_version', _6AMTECH_VERSION );
 	}
 
 }

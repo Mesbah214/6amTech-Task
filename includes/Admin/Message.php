@@ -40,10 +40,10 @@ class Message {
 	 */
 	public function welcome_message_options_page() {
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die(  __( 'You do not have sufficient permissions to access this page.', '6amtech_task' ) );
+			wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', '6amtech_task' ) );
 		}
 
-		$template_path = _6amTech_PATH . '/templates/admin/welcome_message.php';
+		$template_path = _6AMTECH_PATH . '/templates/admin/welcome_message.php';
 
 		if ( file_exists( $template_path ) ) {
 			include $template_path;
