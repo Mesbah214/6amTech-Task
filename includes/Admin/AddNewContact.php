@@ -62,7 +62,11 @@ class AddNewContact {
 			wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', '6amtech_task' ) );
 		}
 
+<<<<<<< HEAD
 		if ( isset( $_POST['_wpnonce'] ) && ! wp_verify_nonce( wp_unslash( $_POST['_wpnonce'] ), 'add_contact' ) ) {
+=======
+		if ( isset( $_POST['_wpnonce'] ) && ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ), 'add_contact' ) ) {
+>>>>>>> fa9a28d (fix: fixed vipcs issues)
 			wp_die( esc_html__( 'Nonce verification failed', '6amtech_task' ) );
 		}
 

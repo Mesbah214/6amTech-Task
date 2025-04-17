@@ -34,7 +34,7 @@ class Ajax {
 
 		$deleted = contact_list_delete_contact( $id );
 
-		if (  true == $deleted ) {
+		if ( true == $deleted ) {
 			wp_send_json_success(
 				[
 					'message' => __( 'Contact deleted successfully', '6amtech_task' ),
@@ -77,9 +77,11 @@ class Ajax {
 		$address = sanitize_text_field( $parsed_data['address'] );
 
 		if ( empty( $name ) ) {
-			wp_send_json_error( [
-				'message' => __( 'Name is required.', '6amtech_task' ),
-			] );
+			wp_send_json_error(
+				[
+					'message' => __( 'Name is required.', '6amtech_task' ),
+				]
+			);
 		}
 
 		if ( empty( $email ) ) {

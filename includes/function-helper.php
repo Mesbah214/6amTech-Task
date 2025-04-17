@@ -103,7 +103,8 @@ function contact_list_get_details( $args = [] ) {
 
 	if ( -1 !== intval( $args['number'] ) ) {
 		$query = $wpdb->prepare(
-			$query . ' LIMIT %d OFFSET %d',
+			'%1$s LIMIT %2$d OFFSET %3$d',
+			$query,
 			$args['number'],
 			$args['offset']
 		);
@@ -113,6 +114,7 @@ function contact_list_get_details( $args = [] ) {
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 		$items = $wpdb->get_results( $query );
 	} else {
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 		$items = $wpdb->get_results( $query );
 	}
 
@@ -129,6 +131,7 @@ function contact_list_get_count() {
 
 	$table_name = $wpdb->prefix . 'contact_list';
 
+	// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	$query = "SELECT COUNT(id) FROM `{$table_name}`";
 
 	$count = $wpdb->get_var( $query );

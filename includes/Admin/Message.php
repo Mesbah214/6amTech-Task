@@ -18,6 +18,7 @@ class Message {
 		register_setting( 'welcome_message_options_group', 'welcome_message' );
 
 		// Add the settings section
+		// phpcs:ignore WordPress.WP.I18n.NoEmptyStrings
 		add_settings_section( 'welcome_message_settings_section', __( '', '6amtech_task' ), null, 'welcome_message' );
 
 		// Add the settings field

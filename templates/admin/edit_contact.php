@@ -1,10 +1,10 @@
 <div class="wrap">
     <h1 class="wp-heading-inline"><?php esc_html_e( 'Edit Contact', '6amtech_task' ); ?></h1>
-    <?php if ( isset( $_GET[ 'contact-updated' ] ) ) { ?>
+    <?php if ( isset( $_GET['contact-updated'] ) ) { ?>
         <div class="notice notice-success is-dismissible">
-            <p><?php _e( 'Contact updated successfully.', '6amtech_task' ); ?></p>
+            <p><?php esc_html_e( 'Contact updated successfully.', '6amtech_task' ); ?></p>
         </div>
-    <?php }  ?>
+    <?php } ?>
     <p><?php esc_html_e( 'Change the required fields to update the contact' ); ?></p>
     <form action="" method="post" class="contact-form">
         <table class="form-table">
