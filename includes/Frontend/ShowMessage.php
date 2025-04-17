@@ -21,7 +21,7 @@ class ShowMessage {
 	public function show_message( $content ) {
 		if ( is_single() && in_the_loop() && is_main_query() ) {
 			$welcome_message = get_option( 'welcome_message' );
-			$message         = '<div class="custom-message">' . esc_html_e( $welcome_message ) . '</div>';
+			$message         = '<div class="custom-message">' . esc_html( $welcome_message ) . '</div>';
 			$content         = $message . $content;
 		}
 
