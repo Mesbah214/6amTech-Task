@@ -6,5 +6,6 @@ class Frontend {
 	public function __construct() {
 		new Frontend\ContactListShortcode();
 		new Frontend\AddNewContactShortcode();
+		new Frontend\ShowMessage();
 	}
 }

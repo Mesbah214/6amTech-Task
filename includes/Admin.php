@@ -9,7 +9,6 @@ class Admin {
 
 		new Admin\Menu( $add_new_contact );
 		new Admin\Message();
-		new Admin\ShowMessage();
 	}
 
 	public function dispatch_action( $add_new_contact ) {
