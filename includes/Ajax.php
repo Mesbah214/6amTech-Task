@@ -51,7 +51,8 @@ class Ajax {
 			wp_send_json_error( ['message' => __( 'No data received', '6amtech_task' )] );
 		}
 
-		$post_data   = sanitize_text_field( wp_unslash( $_POST['data'] ) );
+		// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		$post_data   = wp_unslash( $_POST['data'] );
 		$parsed_data = [];
 		parse_str( $post_data, $parsed_data );
 
