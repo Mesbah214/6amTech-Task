@@ -35,7 +35,7 @@ class Assets {
 			],
 			'contact' => [
 				'src'       => _6AMTECH_ASSETS . '/js/contactPage.js',
-				'deps'      => ['jquery', 'wp-util'],
+				'deps'      => ['jquery'],
 				'ver'       => filemtime( _6AMTECH_PATH . '/assets/js/contactPage.js' ),
 				'in_footer' => true,
 			],

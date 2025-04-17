@@ -27,7 +27,7 @@ Adds a top-level menu in the WordPress admin titled "6amTech - Task" with two ta
   - Email
   - Mobile
   - Address
-- On submission, the contact is saved into a custom database table: `wp_contact_list`
+- On submission, the contact is saved into a custom database table: `contact_list`
 
 ### 3. Shortcode
 - Provides a shortcode: `[contact_list]`
@@ -35,17 +35,17 @@ Adds a top-level menu in the WordPress admin titled "6amTech - Task" with two ta
 
 ### 4. REST API Endpoint
 - A custom REST API endpoint to insert contacts.
-- Endpoint: `POST /wp-json/6amtech-task/v1/add-contact`
+- Endpoint: `POST /wp-json/6amtech/v1/contact-list`
 - Required Parameters (in JSON body):
 ```json
 {
   "name": "John Doe",
   "email": "john@example.com",
-  "mobile": "123456789",
+  "phone": "123456789",
   "address": "123 Main St"
 }
 ```
-- Returns a JSON response with status and message.
+- Returns a JSON response with status and contacts.
 
 ### 5. Toastr Integration
 - Displays **Toastr.js notifications** for:
@@ -66,7 +66,7 @@ Adds a top-level menu in the WordPress admin titled "6amTech - Task" with two ta
 
 
 ```bash
-wp-content/plugins/6amtech-task/
+wp-content/plugins/6amTech-Task
 ```
 2. Activate the plugin from the WordPress admin.
 3. Navigate to:
@@ -90,7 +90,7 @@ curl -X POST https://yourdomain.com/wp-json/6amtech-task/v1/add-contact \
 -d '{
   "name": "Jane Smith",
   "email": "jane@example.com",
-  "mobile": "987654321",
+  "phone": "987654321",
   "address": "456 Secondary Ave"
 }'
 ```
@@ -110,7 +110,9 @@ To clean up all plugin data (e.g., database table, options), delete the plugin f
 
 - **WordPress REST API** – Headless insertions
 
-- **6amTech** – Task and inspiration
+- **[6amTech](https://6amtech.com/)** – Task and inspiration
+
+- **[Saiful Islam Anada](https://siananda.me/)** – Mentor
 
 ## 🧑‍💻 Author
 **Md Mesbah Uddin**
@@ -118,3 +120,5 @@ To clean up all plugin data (e.g., database table, options), delete the plugin f
 Email: msbh214@gmail.com
 
 GitHub: https://github.com/Mesbah214
+
+Portfolio: https://mesbah214.github.io/portfolio/
