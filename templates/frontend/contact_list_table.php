@@ -24,7 +24,7 @@
         	foreach ( $contacts as $index => $contact ) {
         		?>
             <tr>
-                <th scope="row"><?php echo $index + 1; ?></th>
+                <th scope="row"><?php echo esc_html( $index + 1 ); ?></th>
                 <td><?php echo esc_html( $contact->name ); ?></td>
                 <td><?php echo esc_html( $contact->email ); ?></td>
                 <td><?php echo esc_html( $contact->phone ); ?></td>

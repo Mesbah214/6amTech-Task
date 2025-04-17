@@ -22,6 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once __DIR__ . '/vendor/autoload.php';
 
 // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+// phpcs: PEAR.NamingConventions.ValidClassName.StartWithCapital
 final class _6amTechTask {
 	/**
 	 * Plugin version

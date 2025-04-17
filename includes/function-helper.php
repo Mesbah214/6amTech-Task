@@ -131,9 +131,9 @@ function contact_list_get_count() {
 
 	$table_name = $wpdb->prefix . 'contact_list';
 
-	// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	$query = "SELECT COUNT(id) FROM `{$table_name}`";
 
+	// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	$count = $wpdb->get_var( $query );
 
 	return $count;
